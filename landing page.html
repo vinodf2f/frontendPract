@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>landing page</title>
+	<style>
+		body 
+		{
+			font-family: arial;
+			background-color: #12475f;
+			line-height: 1.6;
+			text-align: center;
+			color: white;
+		}
+		#heading
+		{
+			height: 250px;
+		}
+		#heading h1
+		{
+			position: relative;
+			animation-name:head;
+			animation-duration: 2s;
+			
+		}
+		@keyframes head
+		{
+			0% {top: -50px}
+			100% {top: 190px}
+		}
+		.showmsg
+		{
+
+			
+			position: relative;
+			animation-name: para;
+			animation-duration: 3s;
+			
+
+		}
+		@keyframes para
+		{
+			0% { left: -700px }
+			100% {left: 0}
+		}
+		#aa
+		{
+			border: 2px white;
+		}
+		.btn
+		{
+			display: inline-block;
+			padding: 10px 10px;
+			
+			color: white;
+			
+			text-decoration: none;
+			border: white 1px solid;
+			
+			transition-duration: 1s;
+		}
+		.btn:hover
+		{
+			transform:rotateY(180deg);
+		}
+		
+		
+	</style>
+</head>
+<body>
+	<header id="heading">
+		<h1 >welcome to cnc webworld</h1>
+	</header cl>
+	<div class="showmsg">	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+	</div>
+	<a class="btn" href="#">read more</a>
+</body>
+</html>

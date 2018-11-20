@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width,initial-scale">  
+    <title>Boot2</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"> 
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+     <script src="js/bootstrap.min.js"></script> 
+     <style>
+     	#a1 
+	     	{
+	     		float: left;
+	     		position: absolute;
+	     		margin-left: 200px;
+	     		margin-top: 200px;
+	     		margin-bottom: 100px;
+	     		z-index: 100;
+	     	}
+	     	#a2 
+     	   {
+     	   	position: absolute;
+     	   	margin-left: 250px;
+     	   	margin-top: 230px;
+     	   	margin-bottom: 100px;
+     	   	z-index: 10;
+     	   }
+
+     	#a3
+     	{
+     		position: absolute;
+     		margin-left: 290px;
+     		margin-top: 260px;
+     		margin-bottom: 100px;
+     		z-index: 1;
+     	}
+     	.hidden
+     	{
+     		opacity: 0.1;
+     	}
+     </style>
+     <script>
+     	
+     
+     
+</script>
+     
+</head>
+<body>
+	<div id="a1">
+		<img src="images/pexel1.jpeg" width="300px" height="500px"></div>
+		<div id="a2">
+			<img src="images/pexel2.jpeg"  width="300px" height="500px"></div>
+			<div id="a3">
+				<img src="images/pexel3.jpeg"  width="300px" height="500px">
+			</div>
+		
+	<script>
+		$(document).ready(function ()
+		 {
+			$("#a1").hover(function()
+			{
+				$("#a2").css('opacity','0.1');
+				$("#a3").css('opacity','0.1');
+			}
+			);
+			$("#a1").mouseout(function()
+			{
+				$("#a2").css('opacity','1');
+				$("#a3").css('opacity','1');
+			});
+			$("#a2").hover(function()
+			{
+				$("#a1").css('opacity','0.1');
+				$("#a3").css('opacity','0.1');
+			}
+			);
+			$("#a2").mouseout(function()
+			{
+				$("#a1").css('opacity','1');
+				$("#a3").css('opacity','1');
+			});
+			$("#a3").hover(function()
+			{
+				$("#a2").css('opacity','0.1');
+				$("#a1").css('opacity','0.1');
+			}
+			);
+			$("#a3").mouseout(function()
+			{
+				$("#a1").css('opacity','1');
+				$("#a2").css('opacity','1');
+			});
+			
+			
+		});
+     	
+     </script>
+</body>
+</html>

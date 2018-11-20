@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+		<style>	
+         		
+		  </style>
+   
+    <title>Bootstrap 101 Template</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet"> 
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script> 
+	<script type="text/javascript">
+		$(document).ready (function(){
+			$('.collapse').on('shown.bs.collapse',function(){
+			 $(this).parent().find('.glyphicon-menu-down').removeClass('glyphicon-menu-down').addClass('glyphicon-menu-up');
+			}).on('hidden.bs.collapse',function(){
+			 $(this).parent().find('.glyphicon-menu-up').removeClass('glyphicon-menu-up').addClass('glyphicon-menu-down');
+			 });
+		});
+	</script>
+  </head>
+  <body>
+	<br/>
+		<div class="container">
+			<div class="row">
+			    <div class="col-xs-7">
+					<div id="accordion" class="panel-group">
+						<div class="panel panel-primary">
+								<div class="panel-heading">
+									<h4 class="panel-title">
+									  <a href="#panelbodyone" data-toggle="collapse" data-parent="#accordion">
+										<span class="glyphicon glyphicon-menu-up"></span>
+										 img1
+									  </a>
+									</h4>
+								</div>
+								
+								<div id="panelbodyone" class="panel-collapse collapse ">
+									<div class="panel-body">
+										<img src="images/5.jpg" class="img-responsive" alt="abc">
+									</div>
+								</div>
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+								  <a href="#panelbodytwo" data-toggle="collapse" data-parent="#accordion">
+								   <span class="glyphicon glyphicon-menu-down"></span>
+								      img2
+								  </a>
+								</h4>
+							</div>
+							<div id="panelbodytwo" class="panel-collapse collapse">
+								<div class="panel-body">
+									<img src="images/6.jpg" class="img-responsive" alt="abc">
+								</div>
+							</div>
+						</div>
+						<div class="panel panel-primary">
+							<div class="panel-heading">
+								<h4 class="panel-title">
+								  <a href="#panelbodythree" data-toggle="collapse" data-parent="#accordion">
+								   <span class="glyphicon glyphicon-menu-down"></span>
+								     img3
+								  </a>
+								</h4>
+							</div>
+							<div id="panelbodythree" class="panel-collapse collapse">
+								<div class="panel-body">
+									<img src="images/7.jpg" class="img-responsive" alt="abc">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>  
+	</body>
+</html>

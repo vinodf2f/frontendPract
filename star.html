@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Star rating</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet"> 
+	<script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+     <script src="js/bootstrap.min.js"></script> 
+     <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css">
+     
+     <style>
+     	.star-outer 
+     	{
+     		position: relative;
+     		display: inline-block;
+     		font-family: 'Font Awesome 5 Free';
+     		
+     	}
+     	.star-inner
+     	{
+     		font-family: 'Font Awesome 5 Free';
+     		position: absolute;
+     		top: 0;
+     		left: 0;
+     		white-space: nowrap;
+     		overflow: hidden;
+     		width: 0;
+     	
+     	}
+
+     	.star-outer::before 
+     	{
+     		content: "\f005 \f005 \f005 \f005 \f005";	
+     		color: #ccc;
+     	}
+
+     	.star-inner::before 
+     	{
+     		content: "\f005 \f005 \f005 \f005 \f005";
+     		font-weight: 900;
+     		color: #f8ce0b;
+     		
+     	}
+     	.mt
+     	{
+     		margin-top: 50px;
+     	}
+
+     </style>
+</head>
+<body>
+	<div id="f2f" class="container mt ">
+		<div class="form-group ">
+			<select id="product-select" class="form-control custom-select">
+				<option value="0" disabled selected>Select Product</option>
+				<option value="sony">sony 4k TV</option>
+				<option value="samsung">samsung 4k TV</option>
+				<option value="panasonic">panasonic 4k tv</option>
+				<option value="mi">mi 4k TV</option>
+				<option value="onida">onida 4k TV</option>
+			</select>
+		</div>
+
+		<div class="form-group mt">
+			<input type="number" id="rating-control" class="form-control" step="1" max="5" placeholder="Rate 1-5" disabled>
+		</div>
+
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>4k television</th>
+					<th>Rating</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="sony">
+					<td>Sony 4k TV</td>
+					<td>
+						<div class="star-outer">
+						<div class="star-inner"></div>
+						<span class="number-rating"></span>
+						</div>
+					</td>
+				</tr>
+				<tr class="samsung">
+					<td>samsung 4k TV</td>
+					<td>
+						<div class="star-outer">
+						<div class="star-inner"></div>
+						<span class="number-rating"></span>
+						</div>
+					</td>
+				</tr>
+				<tr class="panasonic">
+					<td>panasonic 4k TV</td>
+					<td>
+						<div class="star-outer">
+						<div class="star-inner"></div>
+						<span class="number-rating"></span>
+						</div>
+					</td>
+				</tr>
+				<tr class="mi">
+					<td>mi 4k TV</td>
+					<td>
+						<div class="star-outer">
+						<div class="star-inner"></div>
+						<span class="number-rating"></span>
+						</div>
+					</td>
+				</tr>
+				<tr class="onida">
+					<td>onida 4k TV</td>
+					<td>
+						<div class="star-outer">
+						<div class="star-inner"></div>
+						<span class="number-rating"></span>
+					</div>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<script>
+		//initial ratings
+		const ratings = 
+		{
+			sony: 1.2,
+			samsung: 3.4,
+			panasonic: 2,
+			mi: 1,
+			onida: 4.1
+		};
+		const starTotal = 5;
+
+		//run getRatings when Dom loads
+		document.addEventListener('DOMContentLoaded',getRatings);
+
+
+		//form 
+
+		const productSelect = document.getElementById('product-select');
+
+		const ratingControl = document.getElementById('rating-control');
+
+		let product;
+
+		//changing product select
+
+		productSelect.addEventListener('change',(e) =>
+		{
+			product = e.target.value;
+			
+			ratingControl.disabled = false;
+			 ratingControl.value=ratings[product];
+
+		});
+
+		//rating control change
+
+		ratingControl.addEventListener('blur',(e) => 
+		{
+			const ratingg = e.target.value;
+			if (ratingg > 5)
+			{
+				alert('plz give rating under 5');
+				return;
+			}
+			ratings[product] = ratingg;
+			getRatings();
+		});
+
+		function getRatings() {
+			var i=0;
+			for(const rating in ratings)
+
+			{
+				
+				//get percentage
+				const starPercentage = (ratings[rating] / starTotal) * 100;
+
+
+				//Round to neartest 10
+				const starPercentageRounded = `${(Math.round(starPercentage / 10) * 10)}%`;
+				
+				console.log(starPercentageRounded);
+
+
+				// set width of star-inner to percentage
+			
+		const	a=document.getElementById('f2f').querySelectorAll('.star-inner');
+
+			a[i].style.width = starPercentageRounded;
+			
+				
+			const b=document.getElementById('f2f').querySelectorAll('.number-rating');
+			b[i].innerHTML = ratings[rating];
+			i++;
+			}
+		}
+
+	
+	</script>
+</body>
+</html>
